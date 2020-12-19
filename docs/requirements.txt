@@ -1,4 +1,5 @@
-yaml
+PyYAML
 pandas
-json
+json5
+
 
