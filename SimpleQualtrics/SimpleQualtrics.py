@@ -6,13 +6,11 @@
 import requests
 import zipfile
 import io
-import yaml
+import yaml # PyYAML
 from string import Template
 import time
 import logging
-import pandas as pd
 import re
-import json
 from collections import OrderedDict
 
 class QualtricsError(requests.RequestException):

@@ -5,10 +5,11 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="SimpleQualtrics-CharlesWeir", # Replace with your own username
-    version="1.0",
+    version="1.0.1",
     author="Charles Weir",
     author_email="pypi.cafaw@xoxy.net",
     description="Python module to support Qualtrics APIs",
+    keywords='qualtrics API https',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/charlesweir/SimpleQualtrics",
@@ -21,4 +22,8 @@ setuptools.setup(
         "Topic :: Communications",
     ],
     python_requires='>=3.7',
+    install_requires=[
+       'requests>=2.25.1',
+       'PyYAML>=5.3.1',
+    ]
 )
