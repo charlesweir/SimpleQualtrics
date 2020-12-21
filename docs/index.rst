@@ -1,10 +1,7 @@
-.. SimpleQualtrics documentation master file, created by
-   sphinx-quickstart on Fri Dec 18 08:18:41 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. SimpleQualtrics documentation master file
 
-Welcome to SimpleQualtrics
-==========================
+Welcome to SimpleQualtrics |version|
+====================================
 
 .. toctree::
    :maxdepth: 2
@@ -69,7 +66,7 @@ APIs.
 
 If your Qualtrics requirements are not handled by the higher level functions (get, post, put, delete, etc.),
 use the *call* function. It has similar semantics to `requests.request`,
-but adds Qualtrics credentials, errors and logging. E.g.::
+but adds Qualtrics credentials, errors, timeouts and logging. E.g.::
 
     responseContentFromDifferentCall = q.call('POST', 'different', json={'some': 'parameters'}).content
 
@@ -108,12 +105,11 @@ Code Documentation
 
 .. automodule:: SimpleQualtrics
 
-.. autoclass:: SimpleQualtrics
+.. autoclass:: Session
    :members:
    
 .. autoexception:: QualtricsError
-
-
+    :show-inheritance:
 
 
 

@@ -21,7 +21,7 @@ copyright = '2020, Charles Weir'
 author = 'Charles Weir'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0.2'
+release = '1.0.3'
 
 
 # -- General configuration ---------------------------------------------------
@@ -52,9 +52,23 @@ html_theme="sphinx_rtd_theme"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+# Theme options are theme-specific and customize the look and feel of a theme
+# further.  For a list of options available for each theme, see the
+# documentation.
+html_theme_options = {
+    # "collapse_navigation": True,
+    "display_version": True,
+    # "sticky_navigation": True,  # Set to False to disable the sticky nav while scrolling.
+    # "logo_only": True,  # if we have a html_logo below, this shows /only/ the logo with no title text
+    # "style_nav_header_background": "#FBFBFB",
+}
+
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).
 add_module_names = False
 
-#This value selects what content will be inserted into the main body of an autoclass directive. 
-autoclass_content='both'
+#This value selects what content will be inserted into the main body of an autoclass directive.
+# class, init, or both
+autoclass_content='class'
+
+rst_epilog = '.. |version| replace:: {}'.format(release)

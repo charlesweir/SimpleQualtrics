@@ -17,7 +17,7 @@ class QualtricsError(requests.RequestException):
     '''The Qualtrics server returned an error'''
 
 
-class SimpleQualtrics(object):
+class Session(object):
     ''' This class handles simple access to Qualtrics V3 APIs. It implements credentials,
     configuration handling, choice of API server, practical error handling, call timeouts,
     call logging, and Python-friendly decoding of Qualtrics response formats and protocols.
@@ -70,7 +70,7 @@ class SimpleQualtrics(object):
         :type relPath: String
         :rtype: Dictionary
         
-        :raises QualtricsError, requests.RequestException:
+        :raises requests.RequestException:
         '''
         r=self.call('GET', relPath)
         return r.json()['result']
@@ -84,7 +84,7 @@ class SimpleQualtrics(object):
         :type parameters: Dictionary of string pairs
         :rtype: Dictionary
         
-        :raises QualtricsError, requests.RequestException:
+        :raises requests.RequestException:
         '''
         r=self.call('POST', relPath, json=parameters)
         return r.json()['result']
@@ -97,7 +97,7 @@ class SimpleQualtrics(object):
         :param parameters: keyword parameters to pass with the request
         :type parameters: Dictionary of string pairs
  
-        :raises QualtricsError, requests.RequestException:
+        :raises requests.RequestException:
         '''
         self.call('PUT', relPath, json=parameters)
         
@@ -107,7 +107,7 @@ class SimpleQualtrics(object):
         :param relPath: The relative path for the API request
         :type relPath: String
         
-        :raises QualtricsError, requests.RequestException:
+        :raises requests.RequestException:
         '''
         self.call('DELETE', relPath)
 
@@ -123,7 +123,7 @@ class SimpleQualtrics(object):
         :type parameters: Dictionary of string pairs
         :rtype: String or None
         
-        :raises QualtricsError, requests.RequestException:
+        :raises requests.RequestException:
         '''
         possibleIdFields=['progressId']
         result=self.post( relPath, parameters)
@@ -140,7 +140,7 @@ class SimpleQualtrics(object):
         :type relPath: String
         :rtype: List of Dictionaries.
         
-        :raises QualtricsError, requests.RequestException:
+        :raises requests.RequestException:
         
         Use the return value as constructor parameter to create a Pandas DataFrame.'''
         elements=[]
@@ -163,7 +163,7 @@ class SimpleQualtrics(object):
         :type parameters: Dictionary of string pairs
         :rtype: IOStream
         
-        :raises QualtricsError, requests.RequestException:
+        :raises requests.RequestException:
         
         Note that the filestream supports `seek()`, which allows it to be read more than once.
         '''
@@ -200,7 +200,7 @@ class SimpleQualtrics(object):
         :type kwargs: Dictionary of string pairs
         :rtype: `requests.Result`
         
-        :raises QualtricsError, requests.RequestException:
+        :raises requests.RequestException: For any http error, timeout, or QualtricsError. 
         
         Use *json={someParameters}* to pass parameters to a POST or PUT
         

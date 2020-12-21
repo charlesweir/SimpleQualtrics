@@ -31,7 +31,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 class TestConfiguration(TestCase):
     def test_successful_parameter_configuration(self):
-        qq=SimpleQualtrics.SimpleQualtrics(token='t', dataCenter='d')
+        qq=SimpleQualtrics.Session(token='t', dataCenter='d')
         self.assertEqual(qq.config('token'),'t')
         self.assertEqual(qq.config('notPresent','u'),'u')
         with pytest.raises(KeyError):
@@ -39,19 +39,19 @@ class TestConfiguration(TestCase):
             
     def test_incomplete_configuration(self):
         with pytest.raises(AssertionError):
-            SimpleQualtrics.SimpleQualtrics(token='t')
+            SimpleQualtrics.Session(token='t')
             
     def test_parameters_from_yaml(self):
         with TemporaryDirectory() as tempDir: # NamedTemporaryFile is inconsistent across OSs
             filename=os.path.join(tempDir, 'config.yaml')
             with open(filename,'w') as f:
                 f.write('token: t\ndataCenter: d\nextra: e')
-            qq=SimpleQualtrics.SimpleQualtrics(yaml=filename)
+            qq=SimpleQualtrics.Session(yaml=filename)
             self.assertEqual(qq.config('extra'),'e')
         
     def test_missing_yaml(self):
         with pytest.raises(FileNotFoundError):
-            SimpleQualtrics.SimpleQualtrics(yaml='nonExistentFile')
+            SimpleQualtrics.Session(yaml='nonExistentFile')
 
 def setupFileResponse(fileContents, relPath, params):
         ''' Sets up the mock responses for a file download, answering fileContents'''
@@ -71,7 +71,7 @@ def setupFileResponse(fileContents, relPath, params):
         
 class TestAPICalls(TestCase):
     def setUp(self):
-        self.q=SimpleQualtrics.SimpleQualtrics(token='t', dataCenter='d',
+        self.q=SimpleQualtrics.Session(token='t', dataCenter='d',
                     fileCreationPollIntervalMillis=0)
           
     @responses.activate
@@ -169,7 +169,7 @@ class TestAPICalls(TestCase):
 
     @responses.activate
     def test_file_from_post_timeout(self):
-        qq=SimpleQualtrics.SimpleQualtrics(token='t', dataCenter='d', fileCreationTimeout=0)
+        qq=SimpleQualtrics.Session(token='t', dataCenter='d', fileCreationTimeout=0)
         setupFileResponse('contents will not be returned', 'hello', {'a':'a'})
         with pytest.raises(requests.Timeout) as excinfo:
             qq.fileFromPost('hello', {'a':'a'})
