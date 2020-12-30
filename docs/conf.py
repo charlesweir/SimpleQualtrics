@@ -69,6 +69,6 @@ add_module_names = False
 
 #This value selects what content will be inserted into the main body of an autoclass directive.
 # class, init, or both
-autoclass_content='class'
+autoclass_content='both'
 
 rst_epilog = '.. |version| replace:: {}'.format(release)
