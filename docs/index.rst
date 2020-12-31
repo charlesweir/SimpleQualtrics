@@ -44,7 +44,7 @@ Example usage::
     logging.basicConfig(level=logging.INFO)
 
     # Initialise from configuration file:
-    q=SimpleQualtrics.SimpleQualtrics(yaml='QualtricsCredentials.yaml')
+    q=SimpleQualtrics.Session(yaml='QualtricsCredentials.yaml')
 
     # Get a simple structure:
     myName = q.get('whoami')['firstName']
