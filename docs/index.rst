@@ -28,7 +28,7 @@ Using SimpleQualtrics
 
 There are many Qualtrics APIs in V3, but they use standard calling and response patterns.
 
-So this SimpleQualtrics.SimpleQualtrics provides full coverage of all the Qualtrics APIs
+So SimpleQualtrics provides full coverage of all the Qualtrics APIs
 by requiring the caller to pass the API call strings and parameters.
 It provides Pythonic processing, chaining of multiple associated requests and file-access requests,
 logging, timeouts, and error handling using exceptions.
@@ -39,7 +39,7 @@ Example usage::
     import SimpleQualtrics
     import pandas as pd
 
-    # Use the following to log calls and errors to stderr:
+    # Include the following to log calls and errors to stderr:
     import logging
     logging.basicConfig(level=logging.INFO)
 
