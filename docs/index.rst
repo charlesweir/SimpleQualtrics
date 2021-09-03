@@ -23,6 +23,13 @@ Specifically, it implements separating credentials from code,
 configuration handling, choice of API server, practical error handling, call timeouts,
 call logging, and Python-friendly decoding of Qualtrics response formats and protocols.
 
+Installation
+============
+
+    pip install SimpleQualtrics
+    
+See https://pypi.org/project/SimpleQualtrics/
+
 Using SimpleQualtrics
 =====================
 
