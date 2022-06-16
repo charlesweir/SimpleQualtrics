@@ -95,7 +95,7 @@ The required configuration parameters are:
      **token**
         the Qualtrics API token
      **dataCenter**
-        the Qualtrics center ID to use)
+        the Qualtrics center ID to use
 
 Optional configuration parameters are:
      **timeout**
