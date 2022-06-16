@@ -16,6 +16,7 @@ Specifically, SimpleQualtrics provides:
 * Python-friendly decoding of Qualtrics response formats and protocols.
 
 Releases are via PyPi - to install, use:
+
     pip install SimpleQualtrics
 
 See https://simplequaltrics.readthedocs.io/ for full documentation.
