@@ -1,6 +1,6 @@
 # SimpleQualtrics
 
-Python module to support Qualtrics' APIs.
+Python module to support Qualtrics' APIs. 
 
 SimpleQualtrics is a stand-alone single-class API to access the Qualtrics APIs directly,
 handling all of the Qualtrics web-specific protocols in a robust manner and
@@ -14,5 +14,8 @@ Specifically, SimpleQualtrics provides:
 * Call timeouts,
 * Call logging, and 
 * Python-friendly decoding of Qualtrics response formats and protocols.
+
+Releases are via PyPi - to install, use:
+    pip install SimpleQualtrics
 
 See https://simplequaltrics.readthedocs.io/ for full documentation.
